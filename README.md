@@ -11,10 +11,10 @@
 
 （A榜成绩）
 
-<img width="948" alt="截屏2021-10-26 下午4 17 13" src="https://user-images.githubusercontent.com/92590899/138848050-fb63efbe-461f-4990-a165-6e655b93f787.png">
+<img width="999" alt="截屏2021-10-26 下午4 17 13" src="https://user-images.githubusercontent.com/92590899/138848050-fb63efbe-461f-4990-a165-6e655b93f787.png">
 
 # 二.解决方案
 
 1.拿到赛题之后，针对赛题确定的大致思路如下：
-<img width="1246" alt="截屏2021-10-26 下午6 10 34" src="https://user-images.githubusercontent.com/92590899/138858337-fe99e780-f081-44f2-873d-c49aa8a576eb.png">
+<img width="999" alt="截屏2021-10-26 下午6 10 34" src="https://user-images.githubusercontent.com/92590899/138858337-fe99e780-f081-44f2-873d-c49aa8a576eb.png">
 
