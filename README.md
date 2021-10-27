@@ -19,11 +19,16 @@
 
 <img width="999" alt="截屏2021-10-26 下午6 10 34" src="https://user-images.githubusercontent.com/92590899/138858337-fe99e780-f081-44f2-873d-c49aa8a576eb.png">
 
+##数据处理
 首先，作为一个数据科学相关的比赛，数据集的特点必然是需要我们首先考虑的因素。根据数据分析以及可视化，该数据集的特点如下：
 
 (1):不少数据包含标点符号 (2):存在部分错别字 (3):正副样例数不匹配，Label=1:Label=0大致等于1：3 (4):文本为短文本，长度均不超过100，其中极少量超过64
 
-于是，在数据预处理阶段，我们首先需要做的就是去除数据中的标点符号，并限制文本长度为64，然后便是通过互换Label=1的文本中，source文本与target文本的位置来尝试进行数据增强（后被证实会导致过拟合，逐舍弃。原因暂不明，猜测可能和数据多样性不匹配有关）。最后，将原数据转化成BERT模型要求的输入格式:[cls][source][sep][target][sep]。
+于是，在数据预处理阶段，我们首先需要做的是去除数据中的标点符号，并限制文本长度为64，然后通过互换Label=1的文本中，source文本与target文本的位置来尝试进行数据增强（后被证实会导致过拟合，逐舍弃。原因暂不明，猜测可能和数据多样性不匹配有关）。最后，将原数据转化成BERT模型要求的输入格式:[cls][source][sep][target][sep]。
 
-关于预训练模型的选择，本次比赛笔者采用了：chinese-macbert-base(采用全词Mask，替换[MASK]为近义词，减轻了预训练和微调阶段两者之间的差距)、chinese-roberta-wwm-ext(采用WWM策略，取消NSP任务，采用更大规模的中文训练数据)、nezha-base-www（完全函数式的相对位置编码，加入Span预测任务）、roberta-base-finetuned-chinanews-chinese(在chinanews语料库上进一步训练的roberta)、ernie-1.0（融入实体概念等先验语义知识，基于贴吧提问-回帖的DLM任务）
+##预训练模型
+关于预训练模型的选择，本次比赛笔者采用了：chinese-macbert-base(采用全词Mask，替换[MASK]为近义词，减轻了预训练和微调阶段两者之间的差距)、chinese-roberta-wwm-ext(采用WWM策略，取消NSP任务，采用更大规模的中文训练数据)、nezha-base-www（完全函数式的相对位置编码，加入Span预测任务）、roberta-base-finetuned-chinanews-chinese(在chinanews语料库上进一步训练的roberta)、ernie-1.0（融入实体概念等先验语义知识，基于贴吧提问-回帖的DLM任务）等数个模型。从最后的结果来看，macbert和roberta_bfcc两者在该数据集上的的效果略好于其他模型（盲猜应该是chinanews语料库中包含了一些政府领域语料的原因233）
+
+##魔改模型
+确定了预训练模型之后，便是考虑如何魔改模型了。
 
