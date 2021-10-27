@@ -18,6 +18,7 @@
 由于时间有限，本次并未在前期采取Within-Task和In-Domain预训练，而是直接采取基于bert预训练模型的finetune方法。大致思路如下：
 
 <img width="999" alt="截屏2021-10-26 下午6 10 34" src="https://user-images.githubusercontent.com/92590899/138858337-fe99e780-f081-44f2-873d-c49aa8a576eb.png">
+
 ## 数据处理
 首先，作为一个数据科学相关的比赛，数据集的特点必然是需要我们首先考虑的因素。根据数据分析以及可视化，该数据集的特点如下：
 
