@@ -30,5 +30,5 @@
 关于预训练模型的选择，本次比赛笔者采用了：chinese-macbert-base(采用全词Mask，替换[MASK]为近义词，减轻了预训练和微调阶段两者之间的差距)、chinese-roberta-wwm-ext(采用WWM策略，取消NSP任务，采用更大规模的中文训练数据)、nezha-base-www（完全函数式的相对位置编码，加入Span预测任务）、roberta-base-finetuned-chinanews-chinese(在chinanews语料库上进一步训练的roberta)、ernie-1.0（融入实体概念等先验语义知识，基于贴吧提问-回帖的DLM任务）等数个模型。从最后的结果来看，macbert和roberta_bfcc两者在该数据集上的的效果略好于其他模型（盲猜应该是chinanews语料库中包含了一些政府领域语料的原因233）
 
 ## 魔改模型
-确定了预训练模型之后，便是考虑如何魔改模型了。
+确定了预训练模型之后，便是考虑如何魔改模型了。针对此次比赛，笔者的主要策略就是采用sentence-bert、加入跨句子表示的注意力模块coattention、后面拼接CNN或LSTM等方法。该部分详见model.py文件即可，基本都是借鉴了网上现成的一些代码，并且根据自己的理解加上了一些修改（如后接multi_sample_dropout）。
 
